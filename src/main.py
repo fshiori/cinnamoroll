@@ -20,7 +20,12 @@ def send_to_gchat(message):
         print(f"Failed to send message, status code: {response.status_code}", file=sys.stderr)
 
 if __name__ == "__main__":
-    # Read all input from stdin
+    # 检查标准输入是否来自管道
+    if sys.stdin.isatty():
+        print("Error: Please provide input through a pipe", file=sys.stderr)
+        sys.exit(1)
+    
+    # 从管道读取所有输入
     message = sys.stdin.read()
     
     if message:
