@@ -31,5 +31,5 @@ if __name__ == "__main__":
     if message:
         send_to_gchat(message)
     else:
-        print("Error: No message provided", file=sys.stderr)
+        print("No message provided")
         sys.exit(1)
